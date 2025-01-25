@@ -1,0 +1,50 @@
+.error-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  height: 75px;
+  background: white;
+  padding: 15px;
+  border: 1px solid #ff0000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.error-content {
+  position: relative;
+  color: #d8000c; /* Dark red text color for urgency */
+  font-weight: bold; /* Makes text bold */
+  font-size: 19px; /* Increase font size for better readability */
+}
+
+.close-button {
+  position: absolute;
+  top: -60px;
+  left: -150px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 19px;
+  color: #333;
+}
+
+.close-button:hover {
+  background: transparent;
+  color: #ff0000;
+}
+
+p {
+  margin-left: 15px;
+  margin-top: 25px;
+}
+
+.caution-icon {
+  width: 26px; /* Fixed size for the icon */
+  height: 26px;
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+}
