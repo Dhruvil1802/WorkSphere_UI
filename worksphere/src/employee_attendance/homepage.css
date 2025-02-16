@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  height: 100vh; /* Ensures the full viewport height */
+  flex-direction: row; /* Aligns children horizontally */
+}
+
+.image-side {
+  flex: 0.2; /* Adjusts the width of the side menu */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: url("Background.jpeg") no-repeat center center;
+  background-size: cover;
+}
+
+.content-side {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensures the table aligns at the bottom */
+  width: 100%; /* Takes full width of its container */
+  height: 100%; /* Takes full height available */
+  padding: 0; /* Removes padding to ensure full width use */
+  overflow: hidden; /* Avoids any unwanted scrolling caused by padding/margins */
+}

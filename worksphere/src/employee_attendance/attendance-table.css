@@ -1,0 +1,67 @@
+.attendance-table-container {
+  width: 100%; /* Full width to match the content-side */
+  overflow-x: auto; /* Allows horizontal scrolling */
+  margin-top: auto; /* Pushes the table to the bottom if there's extra space */
+}
+
+.attendance-history-heading {
+  font-size: 25px;
+  color: #5d3f92;
+  font-weight: bold;
+  padding: 0 20px;
+  margin-top: 20px; /* Ensures some space above the heading if needed */
+  margin-bottom: 10px; /* Reduces gap between the heading and the table */
+  text-shadow: 2px 2px 4px rgba(15, 1, 1, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styles for the table container to ensure full width and proximity to the heading */
+.attendance-table-container {
+  width: 100%; /* Matches the width of the content-side */
+  overflow: auto; /* Allows scrolling if the table is larger than the container */
+  margin-top: 0; /* Removes any top margin that might push it down */
+}
+
+.attendance-table {
+  width: 100%;
+  min-width: 600px; /* Ensures table does not become too narrow */
+  border-collapse: collapse;
+  table-layout: fixed; /* Helps maintain consistent column widths */
+}
+
+.attendance-table thead {
+  background-color: #5d3f92;
+  color: white;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendance-table th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.attendance-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.attendance-table td:hover {
+  background-color: #f1f1f1;
+}
+
+.attendance-table .Present {
+  color: #2a9d8f;
+}
+
+.attendance-table .Late {
+  color: #e63946;
+}
+
+.attendance-table .Absent {
+  color: #ffa500;
+}

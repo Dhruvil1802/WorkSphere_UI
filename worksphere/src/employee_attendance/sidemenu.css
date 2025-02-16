@@ -1,0 +1,52 @@
+.profile-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu a {
+  position: relative; /* Required for absolute positioning of pseudo-elements */
+  padding-right: 20px; /* Adds space for the '>' symbol */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.menu a::after {
+  content: ">"; /* The character to display */
+  position: absolute; /* Positions the content relative to its parent (the 'a' tag) */
+  right: -10px; /* Aligns the '>' to the right edge of the 'a' tag */
+  top: 0; /* Aligns the '>' to the top of the 'a' tag (adjust as necessary) */
+  color: white; /* Sets the color of the '>' symbol */
+}
+
+.menu a:hover,
+.menu a:hover::after {
+  color: #ffd700;
+}
