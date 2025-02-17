@@ -1,0 +1,275 @@
+/* Container layout */
+.profile-container {
+  display: flex; /* Aligns left and right sections side by side */
+  flex-direction: row; /* Ensures horizontal layout */
+  justify-content: center; /* Centers content horizontally */
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Left Section - Profile Pic */
+.profile-left {
+  flex: 0.2; /* Takes 20% of the width */
+  background: url("Background.jpeg") no-repeat center center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%; /* Full height */
+}
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 25px;
+  margin-top: 15%;
+  border: 3px solid #5d3f92;
+}
+
+/* Font Color Adjustment */
+.profile-name,
+.profile-info {
+  color: white;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.profile-info {
+  font-size: 1.3rem;
+  margin-top: 20%;
+}
+
+/* Right Section - Employee Details */
+.profile-right {
+  flex: 0.8; /* Takes 80% of the width */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+}
+
+/* Ensures the main section title remains fixed in size */
+.main-section-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #5b349f;
+}
+
+/* Grid Layout for Profile Details (3 Rows, 2 Columns) */
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: repeat(3, auto); /* 3 rows */
+  gap: 20px;
+  height: 88%; /* Ensure grid takes full height */
+}
+
+/* Section Styling */
+.section {
+  background: #f4effd;
+  border-radius: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  min-height: 120px; /* Ensuring section height is fixed */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+
+}
+
+.section:hover {
+  background-color: #e8dcf8; /* Slightly brighter than the original */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+/* Section Titles */
+.section-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #5b349f;
+}
+
+/* Education section layout */
+.education-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap if necessary */
+  gap: 8px; /* Small space between education items */
+  margin-top: 10px; /* Adds space between section title and items */
+}
+
+/* Styling for individual education items */
+.education-item {
+  background-color: #ad8ee2; /* Light gray background */
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Preferences section layout */
+.preferences-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preferences-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Skills section layout */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.skills-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Experience section layout */
+.experience-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.experience-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Achievements section layout */
+.achievements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.achievements-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Certifications section layout */
+.certifications-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.certifications-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+/* Hover effect for all individual item sections */
+.education-item,
+.preferences-item,
+.skills-item,
+.experience-item,
+.achievements-item,
+.certifications-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.education-item:hover,
+.preferences-item:hover,
+.skills-item:hover,
+.experience-item:hover,
+.achievements-item:hover,
+.certifications-item:hover {
+  transform: scale(1.1); /* Slightly enlarges the item */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  background-color: #9461d6;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column; /* Stack sections on smaller screens */
+  }
+
+  .profile-left,
+  .profile-right {
+    flex: 1;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .section-title {
+    margin-bottom: 0; /* Remove bottom margin to align with buttons */
+  }
+
+  .section-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+  }
+
+  .profile-details {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+
+  .profile-left {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .profile-right {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
