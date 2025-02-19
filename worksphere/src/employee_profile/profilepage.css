@@ -2,7 +2,6 @@
 .profile-container {
   display: flex; /* Aligns left and right sections side by side */
   flex-direction: row; /* Ensures horizontal layout */
-  justify-content: center; /* Centers content horizontally */
   height: 100vh; /* Full height of the viewport */
 }
 
@@ -86,7 +85,6 @@
   padding: 15px;
   min-height: 120px; /* Ensuring section height is fixed */
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-
 }
 
 .section:hover {
@@ -231,7 +229,6 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
   background-color: #9461d6;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
