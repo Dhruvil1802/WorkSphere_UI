@@ -1,7 +1,9 @@
 .attendance-table-container {
-  width: 100%; /* Full width to match the content-side */
-  overflow-x: auto; /* Allows horizontal scrolling */
-  margin-top: auto; /* Pushes the table to the bottom if there's extra space */
+  height: 40vh; /* Fixes the height to 40% of the viewport height */
+  overflow-y: auto; /* Enables vertical scrolling */
+  margin-top: 0; /* Keeps the top margin at 0 */
+  width: 100%; /* Matches the width of the content-side */
+  overflow-x: hidden; /* Disables horizontal scrolling */
 }
 
 .attendance-history-heading {
@@ -14,13 +16,7 @@
   text-shadow: 2px 2px 4px rgba(15, 1, 1, 0.1); /* Subtle shadow for depth */
 }
 
-/* Styles for the table container to ensure full width and proximity to the heading */
-.attendance-table-container {
-  width: 100%; /* Matches the width of the content-side */
-  overflow: auto; /* Allows scrolling if the table is larger than the container */
-  margin-top: 0; /* Removes any top margin that might push it down */
-}
-
+/* Styles for the table */
 .attendance-table {
   width: 100%;
   min-width: 600px; /* Ensures table does not become too narrow */
@@ -31,6 +27,9 @@
 .attendance-table thead {
   background-color: #5d3f92;
   color: white;
+  position: sticky; /* Makes the header sticky */
+  top: 0; /* Sticks the header to the top */
+  z-index: 10; /* Keeps the header on top of the table content */
 }
 
 .attendance-table th,
@@ -38,12 +37,6 @@
   padding: 16px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-}
-
-.attendance-table th {
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .attendance-table tr:nth-child(even) {

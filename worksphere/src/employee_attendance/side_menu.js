@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import "./sidemenu.css";
 
-function SideMenu({ showSplitBackground, showProfile }) {
+function SideMenu({ showProfile }) {
   const [gereralDetails, setGeneralDetails] = useState([]);
 
   useEffect(() => {
@@ -13,64 +13,57 @@ function SideMenu({ showSplitBackground, showProfile }) {
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImVtcGxveWVlX2lkIjo1LCJlbWFpbCI6ImVtcGxveWVlNUBnbWFpbC5jb20iLCJleHAiOjE3NDIyODcwOTV9.HZz4oiuvvEmXEazI_y0L4D8v0NIYyogsD8ABNluBwkIX_s0EH1vAkRDHDqWOHMQqEn1BER-62joHn48Vi2_Q7g`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
             "Content-Type": "application/json",
           },
         }
       );
       const data = await res.json();
 
-      setGeneralDetails(data.data);
-
-      console.log("generalDetails", gereralDetails);
+      if (data.status.code === 200) {
+        setGeneralDetails(data.data);
+      }
     }
     getGeneralDetails();
   }, []);
 
-  useEffect(() => {
-    console.log(gereralDetails);
-  }, [gereralDetails]);
-
   return (
     <>
       <div className="profile-container">
-        <div>
-          <img
-            src={gereralDetails[0]?.profile_pic}
-            alt="Profile"
-            className="profile-pic"
-          />
-        </div>
+        <img
+          src={gereralDetails[0]?.profile_pic}
+          alt="Profile"
+          className="profile-pic"
+        />
+
         <div className="profile-name">
           {gereralDetails[0]?.employee_id.employee_name}
         </div>
       </div>
       <ul className="menu">
         <li>
-          <a href="#home">Home</a>
+          <button>Home</button>
         </li>
         <li>
-          <a href="#profile" onClick={showProfile}>
-            Profile
-          </a>
+          <button onClick={showProfile}>Profile</button>
         </li>
         <li>
-          <a href="#about">Rewards</a>
+          <button>Rewards</button>
         </li>
         <li>
-          <a href="#contact">Achievements</a>
+          <button>Achievements</button>
         </li>
         <li>
-          <a href="#about">Tasks</a>
+          <button>Tasks</button>
         </li>
         <li>
-          <a href="#contact">Payroll</a>
+          <button>Payroll</button>
         </li>
         <li>
-          <a href="#contact">Leaves</a>
+          <button>Leaves</button>
         </li>
         <li>
-          <a href="#contact">Logout</a>
+          <button>Logout</button>
         </li>
       </ul>
     </>

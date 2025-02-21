@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./login.css"; // Ensure this path is correct based on your project structure
 import ErrorMessage from "../utils/ErrorMessage.js";
-const host = "https://worksphere-smzq.onrender.com";
+// const host = "https://worksphere-smzq.onrender.com";
+const host = "http://127.0.0.1:8000/";
 
-const LoginForm = () => {
+const LoginForm = ({ showSplitBackground }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -30,6 +31,7 @@ const LoginForm = () => {
 
         if (data.status.code === 200) {
           localStorage.setItem("token", data.data.employee_access_token);
+          showSplitBackground();
         }
 
         if (data.status.code === 400) {
@@ -38,11 +40,11 @@ const LoginForm = () => {
           setEmail("");
           setPassword("");
 
-          // const timer = setTimeout(() => {
-          //   handleCloseErrorMessage();
-          // }, 3000);
+          const timer = setTimeout(() => {
+            handleCloseErrorMessage();
+          }, 3000);
 
-          // // timer();
+          // timer();
         }
       } catch (err) {
         console.log(err);
@@ -91,12 +93,12 @@ const LoginForm = () => {
   );
 };
 
-const Login = () => {
+const Login = ({ showSplitBackground }) => {
   return (
     <>
       <div className="login-page">
         <div className="overlay">
-          <LoginForm />
+          <LoginForm showSplitBackground={showSplitBackground} />
         </div>
       </div>
     </>

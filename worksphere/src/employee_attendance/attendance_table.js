@@ -20,23 +20,17 @@ const AttendanceTable = () => {
       const res = await fetch("http://127.0.0.1:8000/attendance/history/", {
         method: "GET",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImVtcGxveWVlX2lkIjo1LCJlbWFpbCI6ImVtcGxveWVlNUBnbWFpbC5jb20iLCJleHAiOjE3NDIyODcwOTV9.HZz4oiuvvEmXEazI_y0L4D8v0NIYyogsD8ABNluBwkIX_s0EH1vAkRDHDqWOHMQqEn1BER-62joHn48Vi2_Q7g`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       });
       const data = await res.json();
-      console.log("dataaaaaaaaaaaaaaaaa", data.data["employee_achievements"]);
 
       setAttendanceHistory(data.data.reverse());
-
-      console.log("state hereeee", attendanceHistory);
     }
     getAttendanceHistory();
   }, []);
 
-  useEffect(() => {
-    console.log(attendanceHistory);
-  }, [attendanceHistory]);
   return (
     <>
       <h2 className="attendance-history-heading">Attendance History</h2>

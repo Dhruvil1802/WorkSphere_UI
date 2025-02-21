@@ -2,24 +2,24 @@
   text-align: center;
   margin-bottom: 0px;
   display: flex;
-  flex-direction: column; /* Stack the profile picture and name vertically */
-  align-items: center; /* Center the content */
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-pic {
-  width: 160px;
-  height: 160px;
+  width: 120px; /* Reduced size */
+  height: 120px; /* Reduced size */
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0px;
+  margin-top: 20px;
 }
 
 .profile-name {
-  font-size: 1.7rem;
+  font-size: 1.3rem; /* Reduced size */
   font-weight: bold;
   color: white;
-  margin-top: 30px;
-  
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 .menu {
@@ -29,29 +29,37 @@
 }
 
 .menu li {
-  padding: 12px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 0; /* Reduced spacing */
 }
 
-.menu a {
-  position: relative; /* Required for absolute positioning of pseudo-elements */
-  padding-right: 20px; /* Adds space for the '>' symbol */
+.menu button {
+  width: 85%;
+  background: none;
+  border: none;
   color: white;
-  text-decoration: none;
+  font-size: 0.9rem;
   font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  padding: 6px 8px;
   transition: color 0.3s ease;
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center; /* Centers the text */
+  align-items: center;
 }
 
-.menu a::after {
-  content: ">"; /* The character to display */
-  position: absolute; /* Positions the content relative to its parent (the 'a' tag) */
-  right: -10px; /* Aligns the '>' to the right edge of the 'a' tag */
-  top: 0; /* Aligns the '>' to the top of the 'a' tag (adjust as necessary) */
-  color: white; /* Sets the color of the '>' symbol */
+.menu button::after {
+  content: ">";
+  position: absolute;
+  right: 10px; /* Keep the arrow aligned to the right */
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
 }
 
-.menu a:hover,
-.menu a:hover::after {
+.menu button:hover,
+.menu button:hover::after {
   color: #ffd700;
 }
