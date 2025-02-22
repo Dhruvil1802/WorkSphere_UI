@@ -102,6 +102,12 @@
   flex-direction: column; /* Stack sections vertically */
 }
 
+.section {
+  height: 180px; /* Set a fixed height for the section */
+  display: flex;
+  flex-direction: column;
+}
+
 /* Ensures the main section title remains fixed in size */
 .main-section-title {
   font-weight: bold;
@@ -122,15 +128,15 @@
 
 /* Section Styling */
 .sub-section {
+  flex-grow: 1; /* Takes up the remaining space */
   background: #f4effd;
   border-radius: 10px;
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  padding: 10px; /* Reduced padding */
-  min-height: 100px; /* Reduce height if necessary */
+  padding: 10px;
+  min-height: 160px; /* Allows it to shrink if needed */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 4px; /* Reduce margin-bottom to decrease vertical spacing */
 }
 
 .sub-section:hover {
@@ -144,6 +150,7 @@
   font-size: 1.3rem;
   margin-bottom: 10px;
   color: #5b349f;
+  flex-shrink: 0; /* Prevents title from shrinking */
 }
 
 /* Education section layout */
@@ -159,10 +166,12 @@
   background-color: #ad8ee2; /* Light gray background */
   padding: 8px 12px;
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
   color: white;
+  align-items: center; /* Ensures text and button are on the same line */
+  gap: 8px;
 }
 
 /* Preferences section layout */
@@ -177,10 +186,11 @@
   background-color: #ad8ee2;
   padding: 8px 12px;
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
   color: white;
+  gap: 8px;
 }
 
 /* Skills section layout */
@@ -195,10 +205,11 @@
   background-color: #ad8ee2;
   padding: 8px 12px;
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
   color: white;
+  gap: 8px;
 }
 
 /* Experience section layout */
@@ -216,6 +227,8 @@
   overflow: hidden;
   position: relative;
   height: 9px;
+  display: flex;
+  gap: 8px;
 }
 
 /* Achievements section layout */
@@ -230,10 +243,11 @@
   background-color: #ad8ee2;
   padding: 8px 12px;
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
   color: white;
+  gap: 8px;
 }
 
 .experience-bar {
@@ -260,10 +274,11 @@
   background-color: #ad8ee2;
   padding: 8px 12px;
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
   font-size: 14px;
   font-weight: 400;
   color: white;
+  gap: 8px;
 }
 
 /* Hover effect for all individual item sections */
@@ -284,6 +299,30 @@
   transform: scale(1.1); /* Slightly enlarges the item */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
   background-color: #9461d6;
+}
+
+.cross-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgb(231, 126, 126);
+  width: 20px; /* Adjust to match the '×' size */
+  height: 20px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.cross-button::before {
+  content: "×";
+  font-weight: bold;
+}
+
+.cross-button:hover {
+  color: #ff0000;
 }
 
 /* Responsive Design */
