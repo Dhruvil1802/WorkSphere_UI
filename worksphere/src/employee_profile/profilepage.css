@@ -100,6 +100,7 @@
   height: 100%; /* Full height */
   display: flex;
   flex-direction: column; /* Stack sections vertically */
+  position: relative;
 }
 
 .section {
@@ -124,6 +125,13 @@
   grid-template-rows: repeat(3, auto); /* 3 rows */
   gap: 10px; /* Adds space between items */
   height: 95%; /* Ensure grid takes full height */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures button stays beside title */
+  width: 100%;
 }
 
 /* Section Styling */
@@ -306,7 +314,7 @@
   border: none;
   font-size: 16px;
   cursor: pointer;
-  color: rgb(231, 126, 126);
+  color: rgb(232, 114, 114);
   width: 20px; /* Adjust to match the '×' size */
   height: 20px;
   line-height: 20px;
@@ -323,6 +331,162 @@
 
 .cross-button:hover {
   color: #ff0000;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5b349f;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.edit-button::before {
+  content: "✏️"; /* Unicode pencil */
+  font-weight: bold;
+}
+
+.edit-button:hover {
+  color: #7d63ac;
+}
+
+.add-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px; /* Ensures icon is visible */
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Small button size */
+  height: 24px;
+  border-radius: 12px;
+}
+
+.add-button::before {
+  content: "➕";
+  font-weight: bold;
+}
+.add-button:hover {
+  content: "add";
+  font-weight: bold;
+  background: #e3e2e5;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures the modal is above other content */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 90vh; /* Ensures modal doesn't exceed the viewport height */
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Close Button (Cross at Top Right) */
+.close-modal {
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #ff4d4d; /* Change color on hover */
+}
+
+/* Modal Data Section */
+.modal-data {
+  margin-bottom: 20px;
+}
+
+/* Table Styles */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.data-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table td:first-child {
+  font-weight: bold;
+  width: 30%; /* Adjust width of the label column */
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light background for even rows */
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+.selected-tab {
+  position: absolute;
+  top: 20px; /* You can adjust this for positioning */
+  left: 20px;
+  width: 90%;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-tab h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.selected-tab p {
+  font-size: 14px;
+  color: #555;
 }
 
 /* Responsive Design */
@@ -363,5 +527,13 @@
 
   .profile-right {
     padding: 15px; /* Adjust padding for smaller screens */
+  }
+  .data-table td {
+    padding: 8px 10px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
   }
 }

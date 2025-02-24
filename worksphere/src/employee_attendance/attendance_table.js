@@ -2,8 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import "./attendance-table.css"; // Make sure the CSS is imported
+import ErrorMessage from "../utils/ErrorMessage";
 
-const AttendanceTable = () => {
+const AttendanceTable = ({ setErrMsg, setIsErrorVisible }) => {
   const [attendanceHistory, setAttendanceHistory] = useState([]);
   const daysOfWeek = [
     "Monday",
@@ -12,21 +13,28 @@ const AttendanceTable = () => {
     "Thursday",
     "Friday",
     "Saturday",
-    "sunday",
+    "Sunday",
   ];
 
   useEffect(() => {
     async function getAttendanceHistory() {
-      const res = await fetch("http://127.0.0.1:8000/attendance/history/", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
+      try {
+        const res = await fetch("http://127.0.0.1:8000/attendance/history/", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
 
-      setAttendanceHistory(data.data.reverse());
+        if (data.status.code === 200) {
+          setAttendanceHistory(data.data.reverse());
+        }
+      } catch {
+        setErrMsg("service unavailable");
+        setIsErrorVisible(true);
+      }
     }
     getAttendanceHistory();
   }, []);

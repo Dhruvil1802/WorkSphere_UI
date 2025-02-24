@@ -3,25 +3,34 @@ import { useEffect, useState } from "react";
 
 import "./sidemenu.css";
 
-function SideMenu({ showProfile }) {
+function SideMenu({ showProfile, setErrMsg, setIsErrorVisible }) {
   const [gereralDetails, setGeneralDetails] = useState([]);
 
   useEffect(() => {
     async function getGeneralDetails() {
-      const res = await fetch(
-        "http://127.0.0.1:8000/employeeprofile/employeedetails/",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await res.json();
+      try {
+        const res = await fetch(
+          "http://127.0.0.1:8000/employeeprofile/employeedetails/",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await res.json();
 
-      if (data.status.code === 200) {
-        setGeneralDetails(data.data);
+        if (data.status.code === 200) {
+          setGeneralDetails(data.data);
+        }
+        if (data.status.code === 400) {
+          setErrMsg(data.status.message);
+          setIsErrorVisible(true);
+        }
+      } catch {
+        setErrMsg("service unavailable");
+        setIsErrorVisible(true);
       }
     }
     getGeneralDetails();

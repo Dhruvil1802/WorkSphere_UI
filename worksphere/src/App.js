@@ -1,11 +1,12 @@
 import "./App.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import SplitBackground from "./employee_attendance/homepage";
 import EmployeeProfile from "./employee_profile/profilepage";
 import Login from "./employee_boilerplate/login";
+import ErrorMessage from "./utils/ErrorMessage";
 
 function App() {
   const navigate = useNavigate();
@@ -27,7 +28,6 @@ function App() {
   const showHome = () => {
     navigate("/split-background");
   };
-  // const showLogin = () => {};
 
   return (
     <Routes>
