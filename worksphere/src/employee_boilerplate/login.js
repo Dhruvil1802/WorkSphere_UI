@@ -30,7 +30,7 @@ const LoginForm = ({ showSplitBackground }) => {
         const data = await res.json();
 
         if (data.status.code === 200) {
-          localStorage.setItem("token", data.data.employee_access_token);
+          localStorage.setItem("token", data.data.employee_refresh_token);
           showSplitBackground();
         }
 

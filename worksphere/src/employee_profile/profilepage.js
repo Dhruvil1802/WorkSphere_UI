@@ -1,8 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
+import { Switch, FormControlLabel } from "@mui/material";
+
 import "./profilepage.css";
 import ErrorMessage from "../utils/ErrorMessage";
+
+const local = "http://127.0.0.1:8000";
+const host = "https://worksphere-smzq.onrender.com";
+
 const EmployeeProfile = () => {
   const [generalDetails, setGeneralDetails] = useState([]);
   const [education, setEducation] = useState([]);
@@ -13,11 +19,13 @@ const EmployeeProfile = () => {
   const [certifications, setCertifications] = useState([]);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [errMsg, setErrMsg] = useState("");
-
   const [selectedTab, setSelectedTab] = useState(null);
   const [selectedData, setSelectedData] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [isOn, setIsOn] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [addDetail, setAddDetail] = useState({});
+  const [addSelectedTab, setAddSelectedTab] = useState({});
   const handleTabClick = (data, tabType) => {
     setSelectedTab(tabType);
     setSelectedData(data);
@@ -32,11 +40,52 @@ const EmployeeProfile = () => {
     setIsErrorVisible(false);
   }
 
+  function handleForm(formtype) {
+    setIsFormVisible(true);
+    setAddSelectedTab(formtype);
+  }
+
+  const handleToggle = () => {
+    setIsOn((prev) => !prev);
+  };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  //   async function addData() {
+  //     try {
+  //       const res = await fetch(`${host}/employeeprofile/${formtype}/`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(addDetail),
+  //       });
+
+  //       const data = await res.json();
+
+  //       if (data.status.code === 400) {
+  //         setErrorMessage(data.status.message);
+  //         setIsErrorVisible(true);
+
+  //         const timer = setTimeout(() => {
+  //           handleCloseErrorMessage();
+  //         }, 3000);
+
+  //         // timer();
+  //       }
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   addData();
+  // };
+
   useEffect(() => {
     async function getAllDetails() {
       try {
         const res = await fetch(
-          "http://127.0.0.1:8000/employeeprofile/getemployeealldata/",
+          `${local}/employeeprofile/getemployeealldata/`,
           {
             method: "GET",
             headers: {
@@ -67,7 +116,7 @@ const EmployeeProfile = () => {
   async function deleteEducation(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeeeducation/${Id}/`,
+        `${local}/employeeprofile/employeeeducation/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -79,16 +128,13 @@ const EmployeeProfile = () => {
       const data = await res.json();
 
       if (data.status.code === 200) {
-        const res = await fetch(
-          `http://127.0.0.1:8000/employeeprofile/employeeeducation/`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`${local}/employeeprofile/employeeeducation/`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        });
         const data = await res.json();
         setEducation(data.data);
       }
@@ -102,7 +148,7 @@ const EmployeeProfile = () => {
   async function deleteCertification(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeecertifications/${Id}/`,
+        `${local}/employeeprofile/employeecertifications/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -115,7 +161,7 @@ const EmployeeProfile = () => {
 
       if (data.status.code === 200) {
         const res = await fetch(
-          `http://127.0.0.1:8000/employeeprofile/employeecertifications/`,
+          `${local}/employeeprofile/employeecertifications/`,
           {
             method: "GET",
             headers: {
@@ -137,7 +183,7 @@ const EmployeeProfile = () => {
   async function deleteSkills(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeeskills/${Id}/`,
+        `${local}/employeeprofile/employeeskills/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -149,16 +195,13 @@ const EmployeeProfile = () => {
       const data = await res.json();
 
       if (data.status.code === 200) {
-        const res = await fetch(
-          `http://127.0.0.1:8000/employeeprofile/employeeskills/`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const res = await fetch(`${local}/employeeprofile/employeeskills/`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        });
         const data = await res.json();
         setSkills(data.data);
       }
@@ -172,7 +215,7 @@ const EmployeeProfile = () => {
   async function deleteAchievements(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeeachievements/${Id}/`,
+        `${local}/employeeprofile/employeeachievements/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -185,7 +228,7 @@ const EmployeeProfile = () => {
 
       if (data.status.code === 200) {
         const res = await fetch(
-          `http://127.0.0.1:8000//employeeprofile/employeeachievements/`,
+          `${local}//employeeprofile/employeeachievements/`,
           {
             method: "GET",
             headers: {
@@ -206,7 +249,7 @@ const EmployeeProfile = () => {
   async function deletePreference(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeepreferences/${Id}/`,
+        `${local}/employeeprofile/employeepreferences/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -219,7 +262,7 @@ const EmployeeProfile = () => {
 
       if (data.status.code === 200) {
         const res = await fetch(
-          `http://127.0.0.1:8000/employeeprofile/employeepreferences/`,
+          `${local}/employeeprofile/employeepreferences/`,
           {
             method: "GET",
             headers: {
@@ -241,7 +284,7 @@ const EmployeeProfile = () => {
   async function deleteExperience(Id) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/employeeprofile/employeeexperiences/${Id}/`,
+        `${local}/employeeprofile/employeeexperiences/${Id}/`,
         {
           method: "DELETE",
           headers: {
@@ -254,7 +297,7 @@ const EmployeeProfile = () => {
 
       if (data.status.code === 200) {
         const res = await fetch(
-          `http://127.0.0.1:8000/employeeprofile/employeeexperiences/`,
+          `${local}/employeeprofile/employeeexperiences/`,
           {
             method: "GET",
             headers: {
@@ -330,11 +373,25 @@ const EmployeeProfile = () => {
         {/* Right Section - Details */}
 
         <div className="profile-right">
+          <div className="switch-container">
+            <span className={isOn ? "switch-on-label" : "switch-off-label"}>
+              Edit Mode
+            </span>
+            <Switch
+              checked={isOn}
+              onChange={handleToggle}
+              className="custom-toggle"
+            />
+          </div>
+
           <div className="profile-details">
             <div className="section">
               <div className="section-header">
                 <h3 className="section-title">Education</h3>
-                <button className="add-button"></button>
+                <button
+                  className="add-button"
+                  onClick={() => handleForm("employeeeducation")}
+                ></button>
               </div>
 
               <div className="sub-section">
@@ -348,18 +405,22 @@ const EmployeeProfile = () => {
                           onClick={() => handleTabClick(e, "Education")}
                         >
                           {e.education}
-                          <button
-                            className="cross-button"
-                            onClick={() =>
-                              deleteEducation(e.employee_education_id)
-                            }
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={() =>
-                              deleteEducation(e.employee_education_id)
-                            }
-                          ></button>
+                          {isOn && (
+                            <>
+                              <button
+                                className="cross-button"
+                                onClick={() =>
+                                  deleteEducation(e.employee_education_id)
+                                }
+                              ></button>
+                              <button
+                                className="edit-button"
+                                onClick={() =>
+                                  deleteEducation(e.employee_education_id)
+                                }
+                              ></button>
+                            </>
+                          )}
                         </span>
                       ))}
                 </div>
@@ -414,18 +475,26 @@ const EmployeeProfile = () => {
                           onClick={() => handleTabClick(c, "Certifications")}
                         >
                           {c.certificates}
-                          <button
-                            className="cross-button"
-                            onClick={() =>
-                              deleteCertification(c.employee_certification_id)
-                            }
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={() =>
-                              deleteCertification(c.employee_education_id)
-                            }
-                          ></button>
+                          {isOn && (
+                            <>
+                              <button
+                                className="cross-button"
+                                onClick={() =>
+                                  deleteCertification(
+                                    c.employee_certification_id
+                                  )
+                                }
+                              ></button>
+                              <button
+                                className="edit-button"
+                                onClick={() =>
+                                  deleteCertification(
+                                    c.employee_certification_id
+                                  )
+                                }
+                              ></button>
+                            </>
+                          )}
                         </span>
                       ))}
                 </div>
@@ -446,21 +515,25 @@ const EmployeeProfile = () => {
                         <span
                           key={index}
                           className="preferences-item"
-                          onClick={() => handleTabClick(p, "Preference")}
+                          // onClick={() => handleTabClick(p, "Preference")}
                         >
                           {p.preferences}
-                          <button
-                            className="cross-button"
-                            onClick={() =>
-                              deletePreference(p.employee_preferences_id)
-                            }
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={() =>
-                              deletePreference(p.employee_preferences_id)
-                            }
-                          ></button>
+                          {isOn && (
+                            <>
+                              <button
+                                className="cross-button"
+                                onClick={() =>
+                                  deletePreference(p.employee_preferences_id)
+                                }
+                              ></button>
+                              <button
+                                className="edit-button"
+                                onClick={() =>
+                                  deletePreference(p.employee_preferences_id)
+                                }
+                              ></button>
+                            </>
+                          )}
                         </span>
                       ))}
                 </div>
@@ -480,17 +553,25 @@ const EmployeeProfile = () => {
                         <span
                           key={index}
                           className="skills-item"
-                          onClick={() => handleTabClick(s, "Skills")}
+                          // onClick={() => handleTabClick(s, "Skills")}
                         >
                           {s.skills}
-                          <button
-                            className="cross-button"
-                            onClick={() => deleteSkills(s.employee_skills_id)}
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={() => deleteSkills(s.employee_skills_id)}
-                          ></button>
+                          {isOn && (
+                            <>
+                              <button
+                                className="cross-button"
+                                onClick={() =>
+                                  deleteSkills(s.employee_skills_id)
+                                }
+                              ></button>
+                              <button
+                                className="edit-button"
+                                onClick={() =>
+                                  deleteSkills(s.employee_skills_id)
+                                }
+                              ></button>
+                            </>
+                          )}
                         </span>
                       ))}
                 </div>
@@ -513,18 +594,22 @@ const EmployeeProfile = () => {
                           onClick={() => handleTabClick(a, "Achievements")}
                         >
                           {a.achievements}
-                          <button
-                            className="cross-button"
-                            onClick={() =>
-                              deleteAchievements(a.employee_achievements_id)
-                            }
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={() =>
-                              deleteAchievements(a.employee_achievements_id)
-                            }
-                          ></button>
+                          {isOn && (
+                            <>
+                              <button
+                                className="cross-button"
+                                onClick={() =>
+                                  deleteAchievements(a.employee_achievements_id)
+                                }
+                              ></button>
+                              <button
+                                className="edit-button"
+                                onClick={() =>
+                                  deleteAchievements(a.employee_achievements_id)
+                                }
+                              ></button>
+                            </>
+                          )}
                         </span>
                       ))}
                 </div>
@@ -534,6 +619,7 @@ const EmployeeProfile = () => {
         </div>
       </div>
 
+      {/* view details */}
       {isModalVisible && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -610,7 +696,7 @@ const EmployeeProfile = () => {
               </div>
             )}
 
-            {selectedTab === "Skills" && (
+            {/* {selectedTab === "Skills" && (
               <div className="modal-data">
                 <table className="data-table">
                   <tbody>
@@ -623,7 +709,7 @@ const EmployeeProfile = () => {
                   </tbody>
                 </table>
               </div>
-            )}
+            )} */}
 
             {selectedTab === "Certifications" && (
               <div className="modal-data">
@@ -652,7 +738,7 @@ const EmployeeProfile = () => {
               </div>
             )}
 
-            {selectedTab === "Preference" && (
+            {/* {selectedTab === "Preference" && (
               <div className="modal-data">
                 <table className="data-table">
                   <tbody>
@@ -665,7 +751,7 @@ const EmployeeProfile = () => {
                   </tbody>
                 </table>
               </div>
-            )}
+            )} */}
 
             {selectedTab === "Achievements" && (
               <div className="modal-data">
@@ -691,6 +777,14 @@ const EmployeeProfile = () => {
         </div>
       )}
 
+      {/* add form handling */}
+
+      {/* {isFormVisible && (
+        <form onSubmit={handleSubmit} className="login-form">
+          {selectedTab==="employeeeducation" && <input type></input>}
+          <button type="submit">Log In</button>
+        </form>
+      )} */}
       {isErrorVisible && (
         <ErrorMessage message={errMsg} onClick={handleCloseErrorMessage} />
       )}

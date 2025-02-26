@@ -7,7 +7,7 @@ import AttendanceTable from "./attendance_table";
 import ErrorMessage from "../utils/ErrorMessage.js";
 import "./homepage.css";
 
-const SplitBackground = ({ showProfile }) => {
+const SplitBackground = ({ showProfile, setToken }) => {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
@@ -21,6 +21,7 @@ const SplitBackground = ({ showProfile }) => {
           showProfile={showProfile}
           setErrMsg={setErrMsg}
           setIsErrorVisible={setIsErrorVisible}
+          setToken={setToken}
         />
       </div>
       <div className="content-side">

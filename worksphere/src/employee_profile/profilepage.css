@@ -97,7 +97,7 @@
   padding: 20px;
   border-radius: 10px;
   overflow-y: auto;
-  height: 100%; /* Full height */
+  height: 95%; /* Full height */
   display: flex;
   flex-direction: column; /* Stack sections vertically */
   position: relative;
@@ -124,7 +124,7 @@
   grid-template-columns: repeat(2, 1fr); /* 2 columns */
   grid-template-rows: repeat(3, auto); /* 3 rows */
   gap: 10px; /* Adds space between items */
-  height: 95%; /* Ensure grid takes full height */
+  height: 100%; /* Ensure grid takes full height */
 }
 
 .section-header {
@@ -143,7 +143,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  min-height: 160px; /* Allows it to shrink if needed */
+  min-height: 150px; /* Allows it to shrink if needed */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -489,6 +489,52 @@
   color: #555;
 }
 
+/* Custom Toggle Button */
+.switch-container {
+  display: flex;
+  align-items: center; /* Align text and switch vertically */
+  justify-content: flex-end; /* Align everything to the right */
+  position: absolute; /* Keep it fixed at the top */
+  top: -5px; /* Slight padding from the top */
+  right: 10px; /* Slight padding from the right */
+  background: white; /* Optional: Background color */
+  padding: 8px 12px; /* Padding around the text and button */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Style the label text */
+.switch-on-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px; /* Space between text and switch */
+  color: #e75d08;
+  font-weight: 700;
+  top: 0;
+}
+.switch-off-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px; /* Space between text and switch */
+  top: 0;
+  color: #5b379a;
+  font-weight: 700;
+}
+
+.custom-toggle .MuiSwitch-switchBase.Mui-checked {
+  color: #e75d08; /* Green when ON */
+}
+
+.custom-toggle .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #f0a372; /* Green track when ON */
+}
+
+.custom-toggle .MuiSwitch-track {
+  background-color: #6bd32f; /* Red track when OFF */
+}
+
+.custom-toggle .MuiSwitch-switchBase + .MuiSwitch-track {
+  background-color: #4a4a4a; /* Green track when ON */
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .profile-container {

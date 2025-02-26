@@ -10,6 +10,7 @@ import ErrorMessage from "./utils/ErrorMessage";
 
 function App() {
   const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -17,7 +18,7 @@ function App() {
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [token]);
 
   const showSplitBackground = () => {
     navigate("/split-background");
@@ -37,7 +38,9 @@ function App() {
       />
       <Route
         path="/split-background"
-        element={<SplitBackground showProfile={showProfile} />}
+        element={
+          <SplitBackground showProfile={showProfile} setToken={setToken} />
+        }
       />
       <Route path="/show-profile" element={<EmployeeProfile />} />
     </Routes>
