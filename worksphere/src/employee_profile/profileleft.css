@@ -1,0 +1,84 @@
+/* Left Section - Profile Pic */
+.profile-left {
+  flex: 0.35; /* Takes 20% of the width */
+  background: url("Background.jpeg");
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover; /* Ensures the image covers the section */
+  background-position: bottom right;
+  height: 94.1%; /* Full height */
+  border-bottom-right-radius: 4%;
+}
+.sub-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns everything to the left */
+  text-align: left; /* Ensures text aligns left */
+  width: 80%;
+}
+.profile-page-pic {
+  width: 100%;
+  height: 37%;
+  /* border-radius: 50%; */
+  object-fit: cover;
+
+  object-fit: cover; /* Crops the image while maintaining aspect ratio */
+  object-position: top;
+  /* border: 3px solid #5d3f92; */
+}
+.user-profile {
+  color: rgb(44, 147, 243);
+  font-family: sans-serif;
+  font-weight: 790;
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  margin-top: 15%;
+}
+/* Font Color Adjustment */
+.profile-page-name {
+  color: white;
+  font-family: sans-serif;
+  text-align: left;
+  font-size: 350%;
+  font-weight: bold;
+  margin-top: 0px;
+  letter-spacing: 2px;
+}
+.profile-page-info {
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  margin-top: 5%;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-table td {
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: white;
+}
+
+.profile-table td:first-child {
+  font-weight: bold;
+  text-align: left;
+  width: 30%;
+}
+
+.profile-table td:nth-child(2) {
+  text-align: center;
+  width: 5%;
+}
+
+.profile-table td:last-child {
+  text-align: left;
+  width: 65%;
+}

@@ -1,0 +1,213 @@
+/* Modal Overlay */
+.modal-add-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensures the modal is above other content */
+}
+
+/* Modal Content */
+.modal-add-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 90vh; /* Ensures modal doesn't exceed the viewport height */
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Close Button (Cross at Top Right) */
+.close-add-modal {
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.close-add-modal:hover {
+  color: #ff4d4d; /* Change color on hover */
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+/* Form Layout */
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+}
+
+/* Input Field Styling */
+.form-modal input {
+  margin-bottom: 15px;
+  padding: 12px;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  color: #333; /* Ensures input text is visible */
+}
+
+/* Input Focus Style */
+.form-modal input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Button Styles */
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 15px;
+}
+
+/* Submit Button Hover Effect */
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Table Form Layout */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.form-table td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+.form-table label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-table input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Submit Button */
+.form-submit {
+  text-align: center;
+}
+
+.submit-btn {
+  background-color: #9b61ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #8049e0;
+}
+
+/* Year Dropdown Styling */
+#pass_out_year {
+  width: 100%;
+  max-width: 350px; /* Matches input field width */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #333; /* Ensures text visibility */
+  box-sizing: border-box; /* Ensures padding doesn’t affect size */
+  appearance: none; /* Removes default browser dropdown styling */
+}
+
+/* Dropdown Focus Effect */
+#pass_out_year:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Aligns with Input Fields */
+.form-table select,
+.form-table input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Custom Dropdown Arrow */
+#pass_out_year {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23333'><path fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 30px; /* Adjusts for custom arrow */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #pass_out_year {
+    max-width: 90%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal-add-content {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .form-modal input,
+  .submit-btn {
+    max-width: 90%;
+  }
+}

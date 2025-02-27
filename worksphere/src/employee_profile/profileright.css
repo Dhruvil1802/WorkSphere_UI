@@ -1,0 +1,364 @@
+/* Right Section - Employee Details */
+.profile-right {
+  flex: 0.65; /* Takes 80% of the width */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 95%; /* Full height */
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  position: relative;
+}
+
+.section {
+  height: 180px; /* Set a fixed height for the section */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensures the main section title remains fixed in size */
+.main-section-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #5b349f;
+}
+
+/* Grid Layout for Profile Details (3 Rows, 2 Columns) */
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(3, auto); /* 3 rows */
+  gap: 10px; /* Adds space between items */
+  height: 100%; /* Ensure grid takes full height */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures button stays beside title */
+  width: 100%;
+}
+
+/* Section Styling */
+.sub-section {
+  flex-grow: 1; /* Takes up the remaining space */
+  background: #f4effd;
+  border-radius: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  min-height: 150px; /* Allows it to shrink if needed */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-height: 180px; /* Set a max height to enable scrolling */
+  overflow-y: auto; /* Enables vertical scrollbar when content overflows */
+}
+
+.sub-section::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.sub-section::-webkit-scrollbar-track {
+  background: #e8dcf8; /* Track background */
+  border-radius: 10px;
+}
+
+.sub-section::-webkit-scrollbar-thumb {
+  background: #ad8ee2; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.sub-section::-webkit-scrollbar-thumb:hover {
+  background: #8a69c5; /* Darker shade when hovered */
+}
+
+.sub-section:hover {
+  background-color: #e8dcf8; /* Slightly brighter than the original */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+/* Section Titles */
+.section-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #5b349f;
+  flex-shrink: 0; /* Prevents title from shrinking */
+}
+
+/* Education section layout */
+.education-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap if necessary */
+  gap: 8px; /* Small space between education items */
+  margin-top: 10px; /* Adds space between section title and items */
+}
+
+/* Styling for individual education items */
+.education-item {
+  background-color: #ad8ee2; /* Light gray background */
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  align-items: center; /* Ensures text and button are on the same line */
+  gap: 8px;
+}
+
+/* Preferences section layout */
+.preferences-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preferences-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  gap: 8px;
+}
+
+/* Skills section layout */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.skills-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  gap: 8px;
+}
+
+/* Experience section layout */
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experience-item {
+  width: 100%;
+  background-color: #e0d4f8; /* Light purple background */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 9px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Ensures title and buttons are on the same line */
+.experience-details {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align everything to the left */
+  gap: 10px; /* Reduce gap */
+}
+
+.experience-bar {
+  height: 100%;
+  background-color: #7a4dc8; /* Dark purple progress */
+  transition: width 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Achievements section layout */
+.achievements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.achievements-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  gap: 8px;
+}
+
+/* Certifications section layout */
+.certifications-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.certifications-item {
+  background-color: #ad8ee2;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  gap: 8px;
+}
+
+/* Hover effect for all individual item sections */
+.education-item,
+.preferences-item,
+.skills-item,
+.experience-item,
+.achievements-item,
+.certifications-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.education-item:hover,
+.preferences-item:hover,
+.skills-item:hover,
+.achievements-item:hover,
+.certifications-item:hover {
+  transform: scale(1.1); /* Slightly enlarges the item */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  background-color: #9461d6;
+}
+
+.cross-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: rgb(232, 114, 114);
+  width: 20px; /* Adjust to match the '×' size */
+  height: 20px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.cross-button::before {
+  content: "×";
+  font-weight: bold;
+}
+
+.cross-button:hover {
+  color: #ff0000;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5b349f;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.edit-button::before {
+  content: "✏️"; /* Unicode pencil */
+  font-weight: bold;
+}
+
+.edit-button:hover {
+  color: #7d63ac;
+}
+
+.add-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px; /* Ensures icon is visible */
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Small button size */
+  height: 24px;
+  border-radius: 12px;
+}
+
+.add-button::before {
+  content: "➕";
+  font-weight: bold;
+}
+.add-button:hover {
+  content: "add";
+  font-weight: bold;
+  background: #e3e2e5;
+}
+
+/* Custom Toggle Button */
+.switch-container {
+  display: flex;
+  align-items: center; /* Align text and switch vertically */
+  justify-content: flex-end; /* Align everything to the right */
+  position: absolute; /* Keep it fixed at the top */
+  top: -5px; /* Slight padding from the top */
+  right: 10px; /* Slight padding from the right */
+  background: white; /* Optional: Background color */
+  padding: 8px 12px; /* Padding around the text and button */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Style the label text */
+.switch-on-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px; /* Space between text and switch */
+  color: #e75d08;
+  font-weight: 700;
+  top: 0;
+}
+.switch-off-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 8px; /* Space between text and switch */
+  top: 0;
+  color: #5b379a;
+  font-weight: 700;
+}
+
+.custom-toggle .MuiSwitch-switchBase.Mui-checked {
+  color: #e75d08; /* Green when ON */
+}
+
+.custom-toggle .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background-color: #f0a372; /* Green track when ON */
+}
+
+.custom-toggle .MuiSwitch-track {
+  background-color: #6bd32f; /* Red track when OFF */
+}
+
+.custom-toggle .MuiSwitch-switchBase + .MuiSwitch-track {
+  background-color: #4a4a4a; /* Green track when ON */
+}
