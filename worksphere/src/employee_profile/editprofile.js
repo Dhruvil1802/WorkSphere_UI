@@ -180,14 +180,22 @@ function EditProfile({
                         <label htmlFor="year">Year of Graduation:</label>
                       </td>
                       <td>
-                        <input
-                          type="text"
+                        <select
                           id="pass_out_year"
                           name="pass_out_year"
-                          value={formData?.pass_out_year}
                           required
                           onChange={(e) => handleInputChange(e)}
-                        />
+                        >
+                          <option value="">Select Year</option>
+                          {[...Array(100)].map((_, i) => {
+                            const year = new Date().getFullYear() - i;
+                            return (
+                              <option key={year} value={year}>
+                                {year}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </td>
                     </tr>
                   </tbody>

@@ -7,6 +7,12 @@ import "./profileright.css";
 import AddToProfile from "./addtoprofile";
 import ViewDetails from "./viewdetails";
 import EditProfile from "./editprofile";
+import Experiences from "./experience";
+import Education from "./education";
+import Certifications from "./certification";
+import Preferences from "./preference";
+import Skills from "./skill";
+import Achievements from "./achievement";
 
 const local = "http://127.0.0.1:8000";
 const host = "https://worksphere-smzq.onrender.com";
@@ -26,7 +32,7 @@ function ProfileRight({ setErrMsg, setIsErrorVisible }) {
   const [viewSelectedTab, setViewSelectedTab] = useState(null);
   const [editSelectedTab, setEditSelectedTab] = useState({});
   const [isEditFormVisible, setIsEditFormVisible] = useState(false);
-  console.log(addSelectedTab, "ccccccccccccccccccccccccccccccccccc");
+
   const handleTabClick = (data, tabType) => {
     setViewSelectedTab(tabType);
     setSelectedData(data);
@@ -141,300 +147,60 @@ function ProfileRight({ setErrMsg, setIsErrorVisible }) {
         />
       </div>
 
-      {/* education */}
       <div className="profile-details">
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Education</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeeeducation")}
-            ></button>
-          </div>
+        <Education
+          education={education}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
 
-          <div className="sub-section">
-            <div className="education-container">
-              {education.length === 0
-                ? "You haven't added any education yet. Please add your education details."
-                : education.map((e, index) => (
-                    <span
-                      key={index}
-                      className="education-item"
-                      onClick={() => handleTabClick(e, "Education")}
-                    >
-                      {e.education}
-                      {isEditOn && (
-                        <>
-                          <button
-                            className="cross-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              deletedata(
-                                e.employee_education_id,
-                                "employeeeducation"
-                              );
-                            }}
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              handleEditForm(e, "employeeeducation");
-                            }}
-                          ></button>
-                        </>
-                      )}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
+        <Experiences
+          experiences={experiences}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
 
-        {/* experience */}
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Experience</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeeexperiences")}
-            ></button>
-          </div>
-          <div className="sub-section">
-            <div className="experience-container">
-              {experiences.length === 0
-                ? "You haven't added any experience yet. Please add your preferences."
-                : experiences.map((ex, index) => (
-                    <span>
-                      <div
-                        className="experience-details"
-                        onClick={() => handleTabClick(ex, "Experience")}
-                      >
-                        {ex.experience_institute} ({ex.experience} years)
-                        {isEditOn && (
-                          <>
-                            <button
-                              className="cross-button"
-                              onClick={(x) => {
-                                x.stopPropagation();
-                                deletedata(
-                                  ex.employee_experiences_id,
-                                  "employeeexperiences"
-                                );
-                              }}
-                            ></button>
-                            <button
-                              className="edit-button"
-                              onClick={(x) => {
-                                x.stopPropagation();
-                                handleEditForm(ex, "employeeexperiences");
-                              }}
-                            ></button>
-                          </>
-                        )}
-                      </div>
-                      <div className="experience-item">
-                        <div
-                          className="experience-bar"
-                          style={{
-                            width: `${ex.experience * 5}%`,
-                          }}
-                        ></div>
-                      </div>
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
+        <Certifications
+          certifications={certifications}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
 
-        {/* certification */}
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Certifications</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeecertifications")}
-            ></button>
-          </div>
+        <Preferences
+          preferences={preferences}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
 
-          <div className="sub-section">
-            <div className="certifications-container">
-              {certifications.length === 0
-                ? "You haven't added any certifications yet. Please add your certifications."
-                : certifications.map((c, index) => (
-                    <span
-                      key={index}
-                      className="certifications-item"
-                      onClick={() => handleTabClick(c, "Certifications")}
-                    >
-                      {c.certificates}
-                      {isEditOn && (
-                        <>
-                          <button
-                            className="cross-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              deletedata(
-                                c.employee_certification_id,
-                                "employeecertifications"
-                              );
-                              // deleteCertification(c.employee_certification_id);
-                            }}
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              handleEditForm(c, "employeecertifications");
-                            }}
-                          ></button>
-                        </>
-                      )}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
+        <Skills
+          skills={skills}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
 
-        {/* preferences */}
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Preferences</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeepreferences")}
-            ></button>
-          </div>
-
-          <div className="sub-section">
-            <div className="preferences-container">
-              {preferences.length === 0
-                ? "You haven't added any preferences yet. Please add your preferences."
-                : preferences.map((p, index) => (
-                    <span
-                      key={index}
-                      className="preferences-item"
-                      // onClick={() => handleTabClick(p, "Preference")}
-                    >
-                      {p.preferences}
-                      {isEditOn && (
-                        <>
-                          <button
-                            className="cross-button"
-                            onClick={() =>
-                              deletedata(
-                                p.employee_preferences_id,
-                                "employeepreferences"
-                              )
-                            }
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              handleEditForm(p, "employeepreferences");
-                            }}
-                          ></button>
-                        </>
-                      )}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
-
-        {/* skills */}
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Skills</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeeskills")}
-            ></button>
-          </div>
-          <div className="sub-section">
-            <div className="skills-container">
-              {skills.length === 0
-                ? "You haven't added any skills yet. Please add your skills."
-                : skills.map((s, index) => (
-                    <span
-                      key={index}
-                      className="skills-item"
-                      // onClick={() => handleTabClick(s, "Skills")}
-                    >
-                      {s.skills}
-                      {isEditOn && (
-                        <>
-                          <button
-                            className="cross-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              deletedata(
-                                s.employee_skills_id,
-                                "employeeskills"
-                              );
-                            }}
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              handleEditForm(s, "employeeskills");
-                            }}
-                          ></button>
-                        </>
-                      )}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
-
-        {/* achievements */}
-        <div className="section">
-          <div className="section-header">
-            <h3 className="section-title">Achievements</h3>
-            <button
-              className="add-button"
-              onClick={() => handleForm("employeeachievements")}
-            ></button>
-          </div>
-          <div className="sub-section">
-            <div className="achievements-container">
-              {achievements.length === 0
-                ? "You haven't added any achievements yet. Please add your achievements."
-                : achievements.map((a, index) => (
-                    <span
-                      key={index}
-                      className="achievements-item"
-                      onClick={() => handleTabClick(a, "Achievements")}
-                    >
-                      {a.achievements}
-                      {isEditOn && (
-                        <>
-                          <button
-                            className="cross-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              deletedata(
-                                a.employee_achievements_id,
-                                "employeeachievements"
-                              );
-                            }}
-                          ></button>
-                          <button
-                            className="edit-button"
-                            onClick={(x) => {
-                              x.stopPropagation();
-                              handleEditForm(a, "employeeachievements");
-                            }}
-                          ></button>
-                        </>
-                      )}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
+        <Achievements
+          achievements={achievements}
+          handleForm={handleForm}
+          handleTabClick={handleTabClick}
+          isEditOn={isEditOn}
+          deletedata={deletedata}
+          handleEditForm={handleEditForm}
+        />
       </div>
 
       {/* add form handling */}
