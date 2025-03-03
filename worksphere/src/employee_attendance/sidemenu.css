@@ -7,18 +7,18 @@
 }
 
 .profile-pic {
-  width: 120px; /* Reduced size */
-  height: 120px; /* Reduced size */
+  width: 150px; /* Reduced size */
+  height: 150px; /* Reduced size */
   border-radius: 50%;
   object-fit: cover;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .profile-name {
-  font-size: 1.3rem; /* Reduced size */
+  font-size: 1.7rem; /* Reduced size */
   font-weight: bold;
   color: white;
-  margin-top: 8px;
+  margin-top: 20px;
   margin-bottom: 0px;
 }
 

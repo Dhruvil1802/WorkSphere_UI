@@ -65,9 +65,6 @@ function SideMenu({ showProfile, setErrMsg, setIsErrorVisible, setToken }) {
           <button>Rewards</button>
         </li>
         <li>
-          <button>Achievements</button>
-        </li>
-        <li>
           <button>Tasks</button>
         </li>
         <li>

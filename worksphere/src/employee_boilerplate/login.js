@@ -44,7 +44,7 @@ const LoginForm = ({ showSplitBackground }) => {
             handleCloseErrorMessage();
           }, 3000);
 
-          // timer();
+          timer();
         }
       } catch (err) {
         console.log(err);

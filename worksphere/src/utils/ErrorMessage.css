@@ -1,36 +1,43 @@
 .error-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 300px;
-  height: 75px;
-  background: white;
-  padding: 15px;
-  border: 1px solid #ff0000;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  z-index: 1000;
+  position: fixed; /* Keeps it fixed on the screen */
+  top: 20px; /* Distance from the top of the screen */
+  right: 20px; /* Distance from the right edge of the screen */
+  width: 300px; /* Width of the error message */
+  height: 75px; /* Height of the error message */
+  background: rgb(255, 255, 255); /* White background */
+  padding: 15px; /* Padding around content */
+  border: 2px solid #ff0000; /* Red border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  display: flex; /* Flexbox to position the content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  overflow: hidden; /* Prevent content from overflowing */
+  z-index: 1000; /* Ensure it is on top of all other content */
 }
 
 .error-content {
-  position: relative;
-  color: #d8000c; /* Dark red text color for urgency */
-  font-weight: bold; /* Makes text bold */
+  display: flex;
+  align-items: center; /* Vertically align icon and text */
+  color: #d8000c; /* Red color for the error message */
+  font-weight: bold; /* Make the text bold */
   font-size: 19px; /* Increase font size for better readability */
+  margin-top: 20px;
 }
 
 .close-button {
   position: absolute;
-  top: -60px;
-  left: -150px;
+  top: 5px;
+  right: 5px;
+  height: 20px;
+  width: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 19px;
-  color: #333;
+  font-size: 18px;
+  color: #ff3e48;
+  padding: 0;
+  margin: 0;
 }
 
 .close-button:hover {
@@ -40,11 +47,12 @@
 
 p {
   margin-left: 15px;
-  margin-top: 25px;
+  margin-top: 0;
 }
 
 .caution-icon {
   width: 26px; /* Fixed size for the icon */
   height: 26px;
   flex-shrink: 0; /* Prevents the icon from shrinking */
+  margin-right: 10px; /* Adds some space between the icon and text */
 }

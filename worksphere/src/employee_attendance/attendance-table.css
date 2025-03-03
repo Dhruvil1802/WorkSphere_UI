@@ -7,7 +7,7 @@
 }
 
 .attendance-history-heading {
-  font-size: 25px;
+  font-size: 30px;
   color: #5d3f92;
   font-weight: bold;
   padding: 0 20px;
@@ -57,4 +57,127 @@
 
 .attendance-table .Absent {
   color: #ffa500;
+}
+
+.attendance {
+  background-color: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.attendance-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* LEFT SECTION */
+.clock-section {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #5d3f92;
+  padding: 30px;
+  padding-top: 0px;
+  padding-right: 60px;
+  gap: 20px;
+}
+
+.attendance-title {
+  font-size: 30px;
+  color: #5d3f92;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.fas.fa-clock {
+  color: #5d3f92;
+  font-size: xx-large;
+}
+
+.clock-wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+  margin: auto;
+}
+
+.clock-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  /* border: 2px solid #5d3f92; */
+  border-radius: 10px;
+  text-align: center;
+  width: 40%;
+}
+.clock-button {
+  background-color: white;
+  width: 50px;
+  padding: 0px;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Smooth transition for enlarging the icon */
+}
+.clock-button:hover {
+  background-color: white; /* Keep the same background color */
+  transform: scale(1.2); /* Enlarge the icon by 20% */
+}
+
+.clock-box h3 {
+  font-size: 22px; /* Increased from 18px */
+  font-weight: bold;
+  color: #5d3f92;
+}
+
+.time-box {
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 10px 0;
+  border: 2px solid #5d3f92;
+}
+
+.btn-purple {
+  background-color: #7a5dab;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-purple:hover {
+  background-color: #4a2f80;
+}
+
+/* RIGHT SECTION */
+.leave-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+  background-color: #eee; /* Placeholder for Pie Chart */
+  border-radius: 50%;
 }

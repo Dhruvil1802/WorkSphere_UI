@@ -74,12 +74,22 @@ function ProfileRight({ setErrMsg, setIsErrorVisible }) {
         const data = await res.json();
 
         // setAllDetails();
-        setEducation(data.data["employee_education"]);
-        setSkills(data.data["employee_skills"]);
-        setPreferences(data.data["employee_preferences"]);
-        setExperiences(data.data["employee_experiences"]);
-        setAchievements(data.data["employee_achievements"]);
-        setCertifications(data.data["employee_certifications"]);
+        if (data.status.code === 200) {
+          setEducation(data.data["employee_education"]);
+          setSkills(data.data["employee_skills"]);
+          setPreferences(data.data["employee_preferences"]);
+          setExperiences(data.data["employee_experiences"]);
+          setAchievements(data.data["employee_achievements"]);
+          setCertifications(data.data["employee_certifications"]);
+        }
+        if (data.status.code === 400) {
+          // setErrMsg(data.status.message);
+          // setIsErrorVisible(true);
+          // const timer = setTimeout(() => {
+          //   handleCloseErrorMessage();
+          // }, 3000);
+          // timer();
+        }
       } catch {
         setErrMsg("service unavailable");
         setIsErrorVisible(true);
